@@ -42,7 +42,7 @@
  *  Should be in range 0..1.
  *  Default to 0.25.
  *  Examples:
- *  0 means that they they are placed within a continious line.
+ *  0 means that items are placed within a continious line.
  *  0.5 means that half of 3 and 1 cover will be behind 2.
  */
 @property (nonatomic) CGFloat coverDensity;

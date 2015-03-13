@@ -50,8 +50,8 @@
 - (void)prepareLayout {
     [super prepareLayout];
     
-    NSAssert(self.collectionView.numberOfSections == 1, @"[CoverFlowLayout]: Multiple sections aren't supported!");
-    NSAssert(self.scrollDirection == UICollectionViewScrollDirectionHorizontal, @"[CoverFlowLayout]: Vertical scrolling isn't supported!");
+    NSAssert(self.collectionView.numberOfSections == 1, @"[YRCoverFlowLayout]: Multiple sections aren't supported!");
+    NSAssert(self.scrollDirection == UICollectionViewScrollDirectionHorizontal, @"[YRCoverFlowLayout]: Vertical scrolling isn't supported!");
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
@@ -70,6 +70,7 @@
     NSMutableArray *resultingAttributes = [NSMutableArray new];
     
     for (NSIndexPath *path in idxPaths) {
+        // We should create attributes by ourself.
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:path];
         
         // Calculate center:
@@ -102,8 +103,8 @@
         transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
         attributes.transform3D = transform;
         attributes.zIndex = NSIntegerMax - path.row;
-
-//        NSLog(@"IDX: %d. Item position: %.2f. On-screen position: %.2f. Interpolated angle: %.2f",
+        
+//        NSLog(@"IDX: %d. Item position: %.2f. On-screen position: %.2f. Interpolated angle: %.2f.",
 //              (int32_t)attributes.indexPath.row,
 //              attributes.center.x,
 //              screenPosition,
@@ -121,6 +122,10 @@
 }
 
 #pragma mark - Accessors
+
+- (CGFloat)collectionViewHeight {
+    return self.collectionView.bounds.size.height;
+}
 
 - (CGFloat)collectionViewWidth {
     return self.collectionView.bounds.size.width;
