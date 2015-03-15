@@ -31,6 +31,9 @@ UICollectionViewDataSource
     __weak IBOutlet UICollectionView *_photosCollectionView;
     __weak IBOutlet YRCoverFlowLayout *_coverFlowLayout;
     
+    __weak IBOutlet UILabel *_maxDegreeValueLabel;
+    __weak IBOutlet UILabel *_coverDensityValueLabel;
+    
     // To support all screen sizes we need to keep item size consistent.
     CGSize _originalItemSize;
     CGSize _originalCollectionViewSize;
@@ -43,6 +46,9 @@ UICollectionViewDataSource
 
     _originalItemSize = _coverFlowLayout.itemSize;
     _originalCollectionViewSize = _photosCollectionView.bounds.size;
+ 
+    _maxDegreeValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.maxCoverDegree];
+    _coverDensityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.coverDensity];
     
     [self generateDatasource];
 }
@@ -69,6 +75,22 @@ UICollectionViewDataSource
     // Forcely tell collection view to reload current data.
     [_photosCollectionView setNeedsLayout];
     [_photosCollectionView layoutIfNeeded];
+    [_photosCollectionView reloadData];
+}
+
+#pragma mark - Callbacks
+
+- (IBAction)degreesSliderValueChanged:(UISlider *)sender {
+    _coverFlowLayout.maxCoverDegree = sender.value;
+    _maxDegreeValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.maxCoverDegree];
+
+    [_photosCollectionView reloadData];
+}
+
+- (IBAction)densitySliderValueChanged:(UISlider *)sender {
+    _coverFlowLayout.coverDensity = sender.value;
+    _coverDensityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.coverDensity];
+
     [_photosCollectionView reloadData];
 }
 

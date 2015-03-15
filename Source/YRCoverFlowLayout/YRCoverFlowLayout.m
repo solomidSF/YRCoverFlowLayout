@@ -59,7 +59,7 @@
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    CGFloat xOffset = self.collectionView.contentOffset.x;
+//    CGFloat xOffset = self.collectionView.contentOffset.x;
     NSArray *idxPaths = [self indexPathsContainedInRect:rect];
 //    CGRect visibleRect = (CGRect){self.collectionView.contentOffset, self.collectionView.bounds.size};
     
@@ -73,47 +73,25 @@
         // We should create attributes by ourself.
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:path];
         
-        // Calculate center:
-        // Interpolate offset for given attribute. For this task we need min max interval and min and max x allowed for item.
-        CGFloat minInterval = (path.row - 1) * [self collectionViewWidth];
-        CGFloat maxInterval = (path.row + 1) * [self collectionViewWidth];
-        
-        CGFloat minX = [self minXForRow:path.row];
-        CGFloat maxX = [self maxXForRow:path.row] - self.itemSize.width;
-        
-        // Interpolate by formula
-        CGFloat interpolatedX = MIN(MAX(minX + (((maxX - minX) / (maxInterval - minInterval)) * (xOffset - minInterval)),
-                                        minX),
-                                    maxX);
-        attributes.center = (CGPoint){interpolatedX + self.itemSize.width / 2,
-                                      attributes.center.y};
-        
-        // Calculate position of current attributes in range (0, collection view width).
-        CGFloat screenPosition = MIN(MAX(attributes.center.x - xOffset,
-                                         0),
-                                     [self collectionViewWidth]);
-
-        // Interpolate position into angle by formula.
-        CGFloat angle = self.maxCoverDegree - screenPosition * self.maxCoverDegree / ([self collectionViewWidth] / 2);
-        
-        CATransform3D transform = CATransform3DIdentity;
-        // Add perspective.
-        transform.m34 = -1 / 500.0f;
-        // Then rotate.
-        transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
-        attributes.transform3D = transform;
-        attributes.zIndex = NSIntegerMax - path.row;
-        
-//        NSLog(@"IDX: %d. Item position: %.2f. On-screen position: %.2f. Interpolated angle: %.2f.",
-//              (int32_t)attributes.indexPath.row,
-//              attributes.center.x,
-//              screenPosition,
-//              angle);
-        
         [resultingAttributes addObject:attributes];
     }
     
     return [NSArray arrayWithArray:resultingAttributes];
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    
+    attributes.size = self.itemSize;
+    attributes.center = (CGPoint){
+        [self collectionViewWidth] * indexPath.row + [self collectionViewWidth],
+        [self collectionViewHeight] / 2
+    };
+    
+    [self interpolateAttributes:attributes
+                      forOffset:self.collectionView.contentOffset.x];
+    
+    return attributes;
 }
 
 - (CGSize)collectionViewContentSize {
@@ -152,6 +130,22 @@
     return [self itemCenterForRow:row + 1].x - (1.0f / 2 - self.coverDensity) * self.itemSize.width;
 }
 
+- (CGFloat)minXCenterForRow:(NSInteger)row {
+    CGFloat center = [self itemCenterForRow:row - 1].x;
+    
+    return center + (self.itemSize.width / 2) * (1 - 2 * self.coverDensity + cos([self degreesToRad:self.maxCoverDegree]));
+}
+
+- (CGFloat)maxXCenterForRow:(NSInteger)row {
+    CGFloat center = [self itemCenterForRow:row + 1].x;
+
+    return center - (self.itemSize.width / 2) * (1 - 2 * self.coverDensity + cos([self degreesToRad:self.maxCoverDegree]));
+}
+
+- (CGFloat)degreesToRad:(CGFloat)degrees {
+    return degrees * M_PI / 180;
+}
+
 - (NSArray *)indexPathsContainedInRect:(CGRect)rect {
     if ([self.collectionView numberOfItemsInSection:0] == 0) {
         // Nothing to do here when we don't have items.
@@ -183,6 +177,45 @@
     }
     
     return [NSArray arrayWithArray:resultingIdxPaths];
+}
+
+- (void)interpolateAttributes:(UICollectionViewLayoutAttributes *)attributes
+                    forOffset:(CGFloat)offset {
+    NSIndexPath *attributesPath = attributes.indexPath;
+    
+    // Interpolate offset for given attribute. For this task we need min max interval and min and max x allowed for item.
+    CGFloat minInterval = (attributesPath.row - 1) * [self collectionViewWidth];
+    CGFloat maxInterval = (attributesPath.row + 1) * [self collectionViewWidth];
+    
+    CGFloat minX = [self minXCenterForRow:attributesPath.row];
+    CGFloat maxX = [self maxXCenterForRow:attributesPath.row];
+    
+    // Interpolate by formula
+    CGFloat interpolatedX = MIN(MAX(minX + (((maxX - minX) / (maxInterval - minInterval)) * (offset - minInterval)),
+                                    minX),
+                                maxX);
+    attributes.center = (CGPoint){
+        interpolatedX,
+        attributes.center.y
+    };
+    
+    // Interpolate position into angle by formula.
+    CGFloat angle = -self.maxCoverDegree + (interpolatedX - minX) * 2 * self.maxCoverDegree / (maxX - minX);
+    
+    CATransform3D transform = CATransform3DIdentity;
+    // Add perspective.
+    transform.m34 = -1 / 500.0f;
+    // Then rotate.
+    transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
+    attributes.transform3D = transform;
+    attributes.zIndex = NSIntegerMax - attributesPath.row;
+    
+//    NSLog(@"IDX: %d. MinX: %.2f. MaxX: %.2f. Interpolated: %.2f. Interpolated angle: %.2f",
+//          (int32_t)attributesPath.row,
+//          minX,
+//          maxX,
+//          interpolatedX,
+//          angle);
 }
 
 @end

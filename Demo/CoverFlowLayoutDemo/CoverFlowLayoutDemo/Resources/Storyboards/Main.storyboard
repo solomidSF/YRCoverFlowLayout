@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lPy-Ig-GrX">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="otc-wq-oHr" customClass="YRCoverFlowLayout">
                                     <size key="itemSize" width="280" height="450"/>
@@ -50,7 +50,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="BzU-6J-XK4" firstAttribute="height" secondItem="nUM-5w-PRk" secondAttribute="height" multiplier="400:450" id="0By-lf-85e"/>
                                                         <constraint firstItem="1CE-st-0Ky" firstAttribute="leading" secondItem="nUM-5w-PRk" secondAttribute="leading" constant="8" id="EMV-ij-SDN"/>
@@ -84,19 +84,93 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="FXF-Jc-dCg"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feG-hF-Sxw">
+                                <rect key="frame" x="0.0" y="470" width="320" height="98"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7T-kQ-F3H">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="98"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max degree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-i4-tbc">
+                                                <rect key="frame" x="27" y="14" width="106" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Value]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVj-Dq-veh">
+                                                <rect key="frame" x="29" y="62" width="106" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="45" minValue="0.0" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="LRK-LP-0K7">
+                                                <rect key="frame" x="21" y="30" width="118" height="31"/>
+                                                <connections>
+                                                    <action selector="degreesSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="ckw-9X-ai0"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="GbS-Kv-i0B"/>
+                                            <constraint firstAttribute="height" constant="98" id="qyi-dK-91t"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIu-xk-l5B">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="98"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cover density" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGK-v2-Tac">
+                                                <rect key="frame" x="33" y="14" width="106" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Value]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-h2-Yax">
+                                                <rect key="frame" x="30" y="62" width="106" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jeB-DP-RNg">
+                                                <rect key="frame" x="20" y="30" width="118" height="31"/>
+                                                <connections>
+                                                    <action selector="densitySliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="9Bd-Xe-q7M"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="98" id="Zr1-aL-BcS"/>
+                                            <constraint firstAttribute="width" constant="160" id="jIn-2w-8yf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="AIu-xk-l5B" secondAttribute="centerY" id="3Q1-6O-HgC"/>
+                                    <constraint firstAttribute="centerY" secondItem="k7T-kQ-F3H" secondAttribute="centerY" id="Eoi-Su-Oq1"/>
+                                    <constraint firstItem="AIu-xk-l5B" firstAttribute="centerX" secondItem="feG-hF-Sxw" secondAttribute="centerX" multiplier="240:160" id="Ui1-xm-2Dz"/>
+                                    <constraint firstItem="k7T-kQ-F3H" firstAttribute="centerX" secondItem="feG-hF-Sxw" secondAttribute="centerX" multiplier="80:160" id="iNz-ph-zEC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lPy-Ig-GrX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="05J-7v-543"/>
-                            <constraint firstAttribute="trailing" secondItem="lPy-Ig-GrX" secondAttribute="trailing" id="dYq-HS-eOc"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lPy-Ig-GrX" secondAttribute="bottom" id="w5n-wU-gTU"/>
-                            <constraint firstItem="lPy-Ig-GrX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xB5-cl-afj"/>
+                            <constraint firstAttribute="centerY" secondItem="lPy-Ig-GrX" secondAttribute="centerY" constant="39.5" id="1p1-Mc-k8F"/>
+                            <constraint firstItem="lPy-Ig-GrX" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="2CU-ru-KgH"/>
+                            <constraint firstAttribute="centerX" secondItem="lPy-Ig-GrX" secondAttribute="centerX" id="2vJ-56-4DW"/>
+                            <constraint firstItem="feG-hF-Sxw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="EPG-bG-anl"/>
+                            <constraint firstAttribute="trailing" secondItem="feG-hF-Sxw" secondAttribute="trailing" id="SgL-p1-gcf"/>
+                            <constraint firstItem="lPy-Ig-GrX" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="450:568" id="gNc-Sp-JxJ"/>
+                            <constraint firstItem="feG-hF-Sxw" firstAttribute="top" secondItem="lPy-Ig-GrX" secondAttribute="bottom" id="hPC-l6-omA"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="feG-hF-Sxw" secondAttribute="bottom" id="of6-rm-zZC"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="_coverDensityValueLabel" destination="yTM-h2-Yax" id="mhk-MP-5Hf"/>
                         <outlet property="_coverFlowLayout" destination="otc-wq-oHr" id="ET2-3d-yKP"/>
+                        <outlet property="_maxDegreeValueLabel" destination="tVj-Dq-veh" id="35E-VR-f4u"/>
                         <outlet property="_photosCollectionView" destination="lPy-Ig-GrX" id="0pZ-ih-JiN"/>
                     </connections>
                 </viewController>
