@@ -45,4 +45,4 @@ Cover flow, custom layout, collection view
 
 # Version
 
-v1.0
+v1.1

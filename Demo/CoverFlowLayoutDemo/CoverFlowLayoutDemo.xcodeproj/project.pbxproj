@@ -412,7 +412,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CoverFlowLayoutDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "850549d5-26e5-491e-b7bb-c0d6f6ff9610";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -423,7 +423,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/CoverFlowLayoutDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "850549d5-26e5-491e-b7bb-c0d6f6ff9610";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
