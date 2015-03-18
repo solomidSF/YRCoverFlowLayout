@@ -1,5 +1,5 @@
 //
-//  CoverFlowLayout.m
+// YRCoverFlowLayout.m
 //
 // The MIT License (MIT)
 //
