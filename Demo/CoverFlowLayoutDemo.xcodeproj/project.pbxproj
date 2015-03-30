@@ -31,9 +31,9 @@
 		7D57D9231AB364DC00085699 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D57D9071AB364DC00085699 /* Images.xcassets */; };
 		7D57D9251AB364DC00085699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57D90A1AB364DC00085699 /* Main.storyboard */; };
 		7D57D9271AB364DC00085699 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D90D1AB364DC00085699 /* main.m */; };
-		7D57D92C1AB3650B00085699 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D92B1AB3650B00085699 /* YRCoverFlowLayout.m */; };
 		7D57D92F1AB366A200085699 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57D92E1AB366A200085699 /* LaunchScreen.xib */; };
 		7D57D9331AB367A900085699 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D9321AB367A900085699 /* PhotoModel.m */; };
+		7D58BA5D1AC975CD00F2B230 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,11 +65,11 @@
 		7D57D90A1AB364DC00085699 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7D57D90C1AB364DC00085699 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D57D90D1AB364DC00085699 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7D57D92A1AB3650B00085699 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
-		7D57D92B1AB3650B00085699 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D57D92E1AB366A200085699 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		7D57D9311AB367A900085699 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
 		7D57D9321AB367A900085699 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
+		7D58BA5B1AC975CD00F2B230 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
+		7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D6986AF1AB2E17F00BAB704 /* CoverFlowLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverFlowLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,19 +181,9 @@
 		7D57D9281AB364FC00085699 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7D57D9291AB3650B00085699 /* YRCoverFlowLayout */,
+				7D58BA5A1AC975CD00F2B230 /* YRCoverFlowLayout */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		7D57D9291AB3650B00085699 /* YRCoverFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				7D57D92A1AB3650B00085699 /* YRCoverFlowLayout.h */,
-				7D57D92B1AB3650B00085699 /* YRCoverFlowLayout.m */,
-			);
-			name = YRCoverFlowLayout;
-			path = ../../../../../Source/YRCoverFlowLayout;
 			sourceTree = "<group>";
 		};
 		7D57D92D1AB366A200085699 /* Launch */ = {
@@ -211,6 +201,15 @@
 				7D57D9321AB367A900085699 /* PhotoModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7D58BA5A1AC975CD00F2B230 /* YRCoverFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7D58BA5B1AC975CD00F2B230 /* YRCoverFlowLayout.h */,
+				7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */,
+			);
+			path = YRCoverFlowLayout;
 			sourceTree = "<group>";
 		};
 		7D6986A61AB2E17F00BAB704 = {
@@ -321,8 +320,8 @@
 				7D57D90F1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m in Sources */,
 				7D57D9331AB367A900085699 /* PhotoModel.m in Sources */,
 				7D57D9271AB364DC00085699 /* main.m in Sources */,
+				7D58BA5D1AC975CD00F2B230 /* YRCoverFlowLayout.m in Sources */,
 				7D57D90E1AB364DC00085699 /* AppDelegate.m in Sources */,
-				7D57D92C1AB3650B00085699 /* YRCoverFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
