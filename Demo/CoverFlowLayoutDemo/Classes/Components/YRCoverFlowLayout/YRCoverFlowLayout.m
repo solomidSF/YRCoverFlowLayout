@@ -131,15 +131,23 @@
 }
 
 - (CGFloat)minXCenterForRow:(NSInteger)row {
+	CGFloat halfWidth = self.itemSize.width / 2;
+	CGFloat maxRads = [self degreesToRad:self.maxCoverDegree];
     CGFloat center = [self itemCenterForRow:row - 1].x;
-    
-    return center + (self.itemSize.width / 2) * (1 - 2 * self.coverDensity + cos([self degreesToRad:self.maxCoverDegree]));
+	CGFloat prevItemRightEdge = center + halfWidth;
+	CGFloat projectedLeftEdgeLocal = halfWidth * cos(maxRads) * 500 / (500 + halfWidth * sin(maxRads));
+	
+	return prevItemRightEdge - self.coverDensity * self.itemSize.width + projectedLeftEdgeLocal;
 }
 
 - (CGFloat)maxXCenterForRow:(NSInteger)row {
-    CGFloat center = [self itemCenterForRow:row + 1].x;
-
-    return center - (self.itemSize.width / 2) * (1 - 2 * self.coverDensity + cos([self degreesToRad:self.maxCoverDegree]));
+	CGFloat halfWidth = self.itemSize.width / 2;
+	CGFloat maxRads = [self degreesToRad:self.maxCoverDegree];
+	CGFloat center = [self itemCenterForRow:row + 1].x;
+	CGFloat nextItemLeftEdge = center - halfWidth;
+	CGFloat projectedRightEdgeLocal = fabs(halfWidth * cos(maxRads) * 500 / (-halfWidth * sin(maxRads) - 500));
+	
+	return nextItemLeftEdge + self.coverDensity * self.itemSize.width - projectedRightEdgeLocal;
 }
 
 - (CGFloat)degreesToRad:(CGFloat)degrees {
@@ -204,7 +212,7 @@
     
     CATransform3D transform = CATransform3DIdentity;
     // Add perspective.
-    transform.m34 = -1 / 500.0f;
+    transform.m34 = -1.0 / 500;
     // Then rotate.
     transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
     attributes.transform3D = transform;
