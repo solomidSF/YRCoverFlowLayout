@@ -25,6 +25,8 @@
 
 #import "YRCoverFlowLayout.h"
 
+static CGFloat const kDistanceToProjectionPlane = 500.0f;
+
 @implementation YRCoverFlowLayout
 
 #pragma mark - Init
@@ -135,7 +137,7 @@
 	CGFloat maxRads = [self degreesToRad:self.maxCoverDegree];
     CGFloat center = [self itemCenterForRow:row - 1].x;
 	CGFloat prevItemRightEdge = center + halfWidth;
-	CGFloat projectedLeftEdgeLocal = halfWidth * cos(maxRads) * 500 / (500 + halfWidth * sin(maxRads));
+	CGFloat projectedLeftEdgeLocal = halfWidth * cos(maxRads) * kDistanceToProjectionPlane / (kDistanceToProjectionPlane + halfWidth * sin(maxRads));
 	
 	return prevItemRightEdge - self.coverDensity * self.itemSize.width + projectedLeftEdgeLocal;
 }
@@ -145,7 +147,7 @@
 	CGFloat maxRads = [self degreesToRad:self.maxCoverDegree];
 	CGFloat center = [self itemCenterForRow:row + 1].x;
 	CGFloat nextItemLeftEdge = center - halfWidth;
-	CGFloat projectedRightEdgeLocal = fabs(halfWidth * cos(maxRads) * 500 / (-halfWidth * sin(maxRads) - 500));
+	CGFloat projectedRightEdgeLocal = fabs(halfWidth * cos(maxRads) * kDistanceToProjectionPlane / (-halfWidth * sin(maxRads) - kDistanceToProjectionPlane));
 	
 	return nextItemLeftEdge + self.coverDensity * self.itemSize.width - projectedRightEdgeLocal;
 }
@@ -212,7 +214,7 @@
     
     CATransform3D transform = CATransform3DIdentity;
     // Add perspective.
-    transform.m34 = -1.0 / 500;
+	transform.m34 = -1.0 / kDistanceToProjectionPlane;
     // Then rotate.
     transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
     attributes.transform3D = transform;
