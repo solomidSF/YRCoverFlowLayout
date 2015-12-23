@@ -116,6 +116,8 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
 - (void)commonInit {
     self.maxCoverDegree = 45.0f;
     self.coverDensity = 0.25f;
+    self.minCoverOpacity = 1.0;
+    self.minCoverScale = 1.0;
 }
 
 - (CGPoint)itemCenterForRow:(NSInteger)row {
@@ -199,9 +201,10 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
     
     CGFloat minX = [self minXCenterForRow:attributesPath.row];
     CGFloat maxX = [self maxXCenterForRow:attributesPath.row];
+    CGFloat spanX = maxX - minX;
     
     // Interpolate by formula
-    CGFloat interpolatedX = MIN(MAX(minX + (((maxX - minX) / (maxInterval - minInterval)) * (offset - minInterval)),
+    CGFloat interpolatedX = MIN(MAX(minX + ((spanX / (maxInterval - minInterval)) * (offset - minInterval)),
                                     minX),
                                 maxX);
     attributes.center = (CGPoint){
@@ -209,16 +212,27 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
         attributes.center.y
     };
     
-    // Interpolate position into angle by formula.
-    CGFloat angle = -self.maxCoverDegree + (interpolatedX - minX) * 2 * self.maxCoverDegree / (maxX - minX);
-    
     CATransform3D transform = CATransform3DIdentity;
     // Add perspective.
 	transform.m34 = -1.0 / kDistanceToProjectionPlane;
+    
     // Then rotate.
+    CGFloat angle = -self.maxCoverDegree + (interpolatedX - minX) * 2 * self.maxCoverDegree / spanX;
     transform = CATransform3DRotate(transform, angle * M_PI / 180, 0, 1, 0);
-    attributes.transform3D = transform;
+    
+    // Then scale: 1 - abs(1 - Q - 2 * x * (1 - Q))
+    CGFloat scale = 1.0 - ABS(1.0 - self.minCoverScale - (interpolatedX - minX) * 2 * (1.0 - self.minCoverScale) / spanX);
+    transform = CATransform3DScale(transform, scale, scale, scale);
+
+    // Set Z index.
     attributes.zIndex = NSIntegerMax - attributesPath.row;
+    
+    // Apply transform.
+    attributes.transform3D = transform;
+    
+    // Add opacity: 1 - abs(1 - Q - 2 * x * (1 - Q))
+    CGFloat opacity = 1.0 - ABS(1.0 - self.minCoverOpacity - (interpolatedX - minX) * 2 * (1.0 - self.minCoverOpacity) / spanX);
+    attributes.alpha = opacity;
     
 //    NSLog(@"IDX: %d. MinX: %.2f. MaxX: %.2f. Interpolated: %.2f. Interpolated angle: %.2f",
 //          (int32_t)attributesPath.row,
