@@ -47,4 +47,16 @@
  */
 @property (nonatomic) CGFloat coverDensity;
 
+/**
+ *  Min opcaity that can be applied to individual item.
+ *  Default to 1.0 (alpha 100%).
+ */
+@property (nonatomic) CGFloat minCoverOpacity;
+
+/**
+ *  Min scale that can be applied to individual item.
+ *  Default to 1.0 (no scale).
+ */
+@property (nonatomic) CGFloat minCoverScale;
+
 @end

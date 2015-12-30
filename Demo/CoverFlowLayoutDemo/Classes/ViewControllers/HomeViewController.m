@@ -33,6 +33,8 @@ UICollectionViewDataSource
     
     __weak IBOutlet UILabel *_maxDegreeValueLabel;
     __weak IBOutlet UILabel *_coverDensityValueLabel;
+    __weak IBOutlet UILabel *_minOpacityValueLabel;
+    __weak IBOutlet UILabel *_minScaleValueLabel;
     
     // To support all screen sizes we need to keep item size consistent.
     CGSize _originalItemSize;
@@ -49,8 +51,17 @@ UICollectionViewDataSource
  
     _maxDegreeValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.maxCoverDegree];
     _coverDensityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.coverDensity];
+    _minOpacityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.minCoverOpacity];
+    _minScaleValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.minCoverScale];
     
     [self generateDatasource];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_photosCollectionView reloadData];
+    });    
 }
 
 #pragma mark - Auto Layout
@@ -83,7 +94,7 @@ UICollectionViewDataSource
 - (IBAction)degreesSliderValueChanged:(UISlider *)sender {
     _coverFlowLayout.maxCoverDegree = sender.value;
     _maxDegreeValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.maxCoverDegree];
-
+    
     [_photosCollectionView reloadData];
 }
 
@@ -91,6 +102,20 @@ UICollectionViewDataSource
     _coverFlowLayout.coverDensity = sender.value;
     _coverDensityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.coverDensity];
 
+    [_photosCollectionView reloadData];
+}
+
+- (IBAction)opacitySliderValueChanged:(UISlider *)sender {
+    _coverFlowLayout.minCoverOpacity = sender.value;
+    _minOpacityValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.minCoverOpacity];
+    
+    [_photosCollectionView reloadData];
+}
+
+- (IBAction)scaleSliderValueChanged:(UISlider *)sender {
+    _coverFlowLayout.minCoverScale = sender.value;
+    _minScaleValueLabel.text = [NSString stringWithFormat:@"%.2f", _coverFlowLayout.minCoverScale];
+    
     [_photosCollectionView reloadData];
 }
 
