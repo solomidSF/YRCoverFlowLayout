@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D5284831C340CCD00775DD1 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */; };
 		7D57D90E1AB364DC00085699 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8EC1AB364DC00085699 /* AppDelegate.m */; };
 		7D57D90F1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8EF1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m */; };
 		7D57D9101AB364DC00085699 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8F21AB364DC00085699 /* HomeViewController.m */; };
@@ -33,10 +34,11 @@
 		7D57D9271AB364DC00085699 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D90D1AB364DC00085699 /* main.m */; };
 		7D57D92F1AB366A200085699 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57D92E1AB366A200085699 /* LaunchScreen.xib */; };
 		7D57D9331AB367A900085699 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D9321AB367A900085699 /* PhotoModel.m */; };
-		7D58BA5D1AC975CD00F2B230 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D5284811C340CCD00775DD1 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YRCoverFlowLayout.h; path = ../../../Source/YRCoverFlowLayout/YRCoverFlowLayout.h; sourceTree = "<group>"; };
+		7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YRCoverFlowLayout.m; path = ../../../Source/YRCoverFlowLayout/YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D57D8EB1AB364DC00085699 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D57D8EC1AB364DC00085699 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D57D8EE1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCollectionViewCell.h; sourceTree = "<group>"; };
@@ -68,8 +70,6 @@
 		7D57D92E1AB366A200085699 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		7D57D9311AB367A900085699 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
 		7D57D9321AB367A900085699 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
-		7D58BA5B1AC975CD00F2B230 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
-		7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D6986AF1AB2E17F00BAB704 /* CoverFlowLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverFlowLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D52847F1C340CA000775DD1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7D5284801C340CBA00775DD1 /* YRCoverFlowLayout */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		7D5284801C340CBA00775DD1 /* YRCoverFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7D5284811C340CCD00775DD1 /* YRCoverFlowLayout.h */,
+				7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */,
+			);
+			name = YRCoverFlowLayout;
+			sourceTree = "<group>";
+		};
 		7D57D8E91AB364DC00085699 /* CoverFlowLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +116,7 @@
 			children = (
 				7D57D8EB1AB364DC00085699 /* AppDelegate.h */,
 				7D57D8EC1AB364DC00085699 /* AppDelegate.m */,
-				7D57D9281AB364FC00085699 /* Components */,
+				7D52847F1C340CA000775DD1 /* Components */,
 				7D57D9301AB3678E00085699 /* Model */,
 				7D57D8ED1AB364DC00085699 /* Cells */,
 				7D57D8F01AB364DC00085699 /* ViewControllers */,
@@ -178,14 +195,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7D57D9281AB364FC00085699 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				7D58BA5A1AC975CD00F2B230 /* YRCoverFlowLayout */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		7D57D92D1AB366A200085699 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,15 +210,6 @@
 				7D57D9321AB367A900085699 /* PhotoModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7D58BA5A1AC975CD00F2B230 /* YRCoverFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				7D58BA5B1AC975CD00F2B230 /* YRCoverFlowLayout.h */,
-				7D58BA5C1AC975CD00F2B230 /* YRCoverFlowLayout.m */,
-			);
-			path = YRCoverFlowLayout;
 			sourceTree = "<group>";
 		};
 		7D6986A61AB2E17F00BAB704 = {
@@ -320,7 +320,7 @@
 				7D57D90F1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m in Sources */,
 				7D57D9331AB367A900085699 /* PhotoModel.m in Sources */,
 				7D57D9271AB364DC00085699 /* main.m in Sources */,
-				7D58BA5D1AC975CD00F2B230 /* YRCoverFlowLayout.m in Sources */,
+				7D5284831C340CCD00775DD1 /* YRCoverFlowLayout.m in Sources */,
 				7D57D90E1AB364DC00085699 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
