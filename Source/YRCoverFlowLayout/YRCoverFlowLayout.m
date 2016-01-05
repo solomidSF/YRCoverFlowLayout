@@ -47,6 +47,13 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
     return self;
 }
 
+- (void)commonInit {
+    self.maxCoverDegree = 45.0f;
+    self.coverDensity = 0.25f;
+    self.minCoverOpacity = 1.0f;
+    self.minCoverScale = 1.0f;
+}
+
 #pragma mark - Overridden
 
 - (void)prepareLayout {
@@ -72,7 +79,7 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
     NSMutableArray *resultingAttributes = [NSMutableArray new];
     
     for (NSIndexPath *path in idxPaths) {
-        // We should create attributes by ourself.
+        // We should create attributes by ourselves.
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:path];
         
         [resultingAttributes addObject:attributes];
@@ -112,13 +119,6 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
 }
 
 #pragma mark - Private
-
-- (void)commonInit {
-    self.maxCoverDegree = 45.0f;
-    self.coverDensity = 0.25f;
-    self.minCoverOpacity = 1.0;
-    self.minCoverScale = 1.0;
-}
 
 - (CGPoint)itemCenterForRow:(NSInteger)row {
     CGSize collectionViewSize = self.collectionView.bounds.size;
@@ -171,7 +171,7 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
     // Additional check for rows that also can be included (our rows are moving depending on content size).
     NSInteger candidateMinRow = MAX(minRow - 1, 0);
     if ([self maxXForRow:candidateMinRow] >= rect.origin.x) {
-        // We have a row that is lesser than given minimum.
+        // We have a row that is less than given minimum.
         minRow = candidateMinRow;
     }
     
@@ -223,9 +223,6 @@ static CGFloat const kDistanceToProjectionPlane = 500.0f;
     // Then scale: 1 - abs(1 - Q - 2 * x * (1 - Q))
     CGFloat scale = 1.0 - ABS(1.0 - self.minCoverScale - (interpolatedX - minX) * 2 * (1.0 - self.minCoverScale) / spanX);
     transform = CATransform3DScale(transform, scale, scale, scale);
-
-    // Set Z index.
-    attributes.zIndex = NSIntegerMax - attributesPath.row;
     
     // Apply transform.
     attributes.transform3D = transform;

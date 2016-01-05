@@ -1,3 +1,5 @@
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/solomidSF/yrcoverflowlayout/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 # YRCoverFlowLayout
 
 Simple cover animation flow layout for collection view.
@@ -32,8 +34,6 @@ This property means how neighbour items are placed to in relation to currently d
 
 	@property (nonatomic) CGFloat coverDensity;
 
-If you’re changing them at runtime - don’t forget to call ‘reloadData’.
-
 Thanks to [viteinfinite](https://github.com/viteinfinite) for adding 2 more customizable properties:
 
 Min opacity that can be applied to individual item.
@@ -45,6 +45,8 @@ Min scale that can be applied to individual item.
 Default to 1.0 (no scale).
 
 	@property (nonatomic) CGFloat minCoverScale;
+
+If you’re changing them at runtime - don’t forget to call ‘reloadData’.
 
 # Notes
 
