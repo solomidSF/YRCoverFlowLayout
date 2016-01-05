@@ -34,7 +34,7 @@ This property means how neighbour items are placed to in relation to currently d
 
 If you’re changing them at runtime - don’t forget to call ‘reloadData’.
 
-Thanks to ![viteinfinite](https://github.com/viteinfinite) for adding 2 more customizable properties:
+Thanks to [viteinfinite](https://github.com/viteinfinite) for adding 2 more customizable properties:
 
 Min opacity that can be applied to individual item.
 Default to 1.0 (alpha 100%).
