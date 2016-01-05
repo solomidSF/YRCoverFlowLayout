@@ -22,7 +22,7 @@ You don’t need to worry about items(cells) positions, spaces between them, etc
 
 # Customization 
 
-There are 2 properties that can be customized:
+There are 4 properties that can be customized:
 
 Max degree of rotation for items. Default to 45. This means that item on a left side of screen will be rotated 45 degrees around y and item on a right side will be rotated -45 degrees around y. 
 
@@ -33,6 +33,18 @@ This property means how neighbour items are placed to in relation to currently d
 	@property (nonatomic) CGFloat coverDensity;
 
 If you’re changing them at runtime - don’t forget to call ‘reloadData’.
+
+Thanks to ![viteinfinite](https://github.com/viteinfinite) for adding 2 more customizable properties:
+
+Min opacity that can be applied to individual item.
+Default to 1.0 (alpha 100%).
+
+	@property (nonatomic) CGFloat minCoverOpacity;
+
+Min scale that can be applied to individual item.
+Default to 1.0 (no scale).
+
+	@property (nonatomic) CGFloat minCoverScale;
 
 # Notes
 
@@ -45,4 +57,4 @@ Cover flow, custom layout, collection view
 
 # Version
 
-v1.1
+v1.2.0
