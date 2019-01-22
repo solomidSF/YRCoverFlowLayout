@@ -1,5 +1,3 @@
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/solomidSF/yrcoverflowlayout/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 # YRCoverFlowLayout
 
 Simple cover animation flow layout for collection view.
