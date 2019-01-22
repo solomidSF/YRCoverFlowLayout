@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D5284831C340CCD00775DD1 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */; };
 		7D57D90E1AB364DC00085699 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8EC1AB364DC00085699 /* AppDelegate.m */; };
 		7D57D90F1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8EF1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m */; };
 		7D57D9101AB364DC00085699 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D8F21AB364DC00085699 /* HomeViewController.m */; };
@@ -34,11 +33,10 @@
 		7D57D9271AB364DC00085699 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D90D1AB364DC00085699 /* main.m */; };
 		7D57D92F1AB366A200085699 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57D92E1AB366A200085699 /* LaunchScreen.xib */; };
 		7D57D9331AB367A900085699 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D57D9321AB367A900085699 /* PhotoModel.m */; };
+		7D622B5D21F7B05C0079A1CC /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D622B5C21F7B05C0079A1CC /* YRCoverFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7D5284811C340CCD00775DD1 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YRCoverFlowLayout.h; path = ../../../Source/YRCoverFlowLayout/YRCoverFlowLayout.h; sourceTree = "<group>"; };
-		7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YRCoverFlowLayout.m; path = ../../../Source/YRCoverFlowLayout/YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D57D8EB1AB364DC00085699 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D57D8EC1AB364DC00085699 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D57D8EE1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCollectionViewCell.h; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		7D57D92E1AB366A200085699 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		7D57D9311AB367A900085699 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
 		7D57D9321AB367A900085699 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
+		7D622B5B21F7B05C0079A1CC /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
+		7D622B5C21F7B05C0079A1CC /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		7D6986AF1AB2E17F00BAB704 /* CoverFlowLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverFlowLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,23 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D52847F1C340CA000775DD1 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				7D5284801C340CBA00775DD1 /* YRCoverFlowLayout */,
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		7D5284801C340CBA00775DD1 /* YRCoverFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				7D5284811C340CCD00775DD1 /* YRCoverFlowLayout.h */,
-				7D5284821C340CCD00775DD1 /* YRCoverFlowLayout.m */,
-			);
-			name = YRCoverFlowLayout;
-			sourceTree = "<group>";
-		};
 		7D57D8E91AB364DC00085699 /* CoverFlowLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +99,7 @@
 			children = (
 				7D57D8EB1AB364DC00085699 /* AppDelegate.h */,
 				7D57D8EC1AB364DC00085699 /* AppDelegate.m */,
-				7D52847F1C340CA000775DD1 /* Components */,
+				7D622B5A21F7B05C0079A1CC /* YRCoverFlowLayout */,
 				7D57D9301AB3678E00085699 /* Model */,
 				7D57D8ED1AB364DC00085699 /* Cells */,
 				7D57D8F01AB364DC00085699 /* ViewControllers */,
@@ -212,6 +195,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7D622B5A21F7B05C0079A1CC /* YRCoverFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7D622B5B21F7B05C0079A1CC /* YRCoverFlowLayout.h */,
+				7D622B5C21F7B05C0079A1CC /* YRCoverFlowLayout.m */,
+			);
+			name = YRCoverFlowLayout;
+			path = ../../../Source/YRCoverFlowLayout;
+			sourceTree = "<group>";
+		};
 		7D6986A61AB2E17F00BAB704 = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +247,7 @@
 		7D6986A71AB2E17F00BAB704 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = solomidSF;
 				TargetAttributes = {
 					7D6986AE1AB2E17F00BAB704 = {
@@ -320,7 +313,7 @@
 				7D57D90F1AB364DC00085699 /* CustomCollectionViewCollectionViewCell.m in Sources */,
 				7D57D9331AB367A900085699 /* PhotoModel.m in Sources */,
 				7D57D9271AB364DC00085699 /* main.m in Sources */,
-				7D5284831C340CCD00775DD1 /* YRCoverFlowLayout.m in Sources */,
+				7D622B5D21F7B05C0079A1CC /* YRCoverFlowLayout.m in Sources */,
 				7D57D90E1AB364DC00085699 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,20 +329,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -377,13 +382,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -391,6 +406,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -408,8 +424,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/CoverFlowLayoutDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solomidSF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -419,8 +437,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/CoverFlowLayoutDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solomidSF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

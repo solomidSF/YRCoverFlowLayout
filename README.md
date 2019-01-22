@@ -7,20 +7,29 @@ Simple cover animation flow layout for collection view.
 # Description
 
 This custom layout enhances your collection view with cover flow effect.
-You don’t need to worry about items(cells) positions, spaces between them, etc. because it’s already done in YRCoverFlowLayout! You simply design your cell and return them as usual in datasource methods and YRCoverFlowLayout handles the rest.
+You don’t need to worry about items(cells) positions, spaces between them, etc. because it’s already done in `YRCoverFlowLayout`! You simply design your cell and return them as usual in datasource methods and `YRCoverFlowLayout` handles the rest.
 
 # Demo
 
-![Portrait flow](/PortraitCoverLayout.gif)
-![Lanscape flow](/LandscapeCoverLayout.gif)
+![Portrait flow](https://raw.githubusercontent.com/solomidSF/YRCoverFlowLayout/1.3.0/PortraitCoverLayout.gif)
+![Lanscape flow](https://raw.githubusercontent.com/solomidSF/YRCoverFlowLayout/1.3.0/LandscapeCoverLayout.gif)
 
 # Installation
 
+### Manual
 1. Simply drag&drop source into your project.
-2. Set custom layout class in your collection view to YRCoverFlowLayout.
+2. Set custom layout class in your collection view to `YRCoverFlowLayout`.
 3. Design your cell in collection view.
 4. Return your cell in datasource methods.
 5. Scroll and enjoy.
+
+### CocoaPods
+`YRCoverFlowLayout` is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'YRCoverFlowLayout'
+```
 
 # Customization 
 
@@ -58,5 +67,8 @@ In future releases vertical scrolling will be added too.
 Cover flow, custom layout, collection view
 
 # Version
+v1.3.0
 
-v1.2.0
+# License
+
+`YRCoverFlowLayout` is released under the MIT license. See [LICENSE](https://github.com/solomidSF/YRCoverFlowLayout/blob/master/LICENSE) for details.
